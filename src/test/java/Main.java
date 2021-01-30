@@ -7,8 +7,10 @@ public class Main {
         System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         WishList wishList = new WishList();
-
+    LoginTest loginTest = new LoginTest();
     }
+
+
 
 
 }

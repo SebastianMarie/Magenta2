@@ -22,8 +22,8 @@ public class Register {
         System.setProperty("webdriver.chrome.driver","resources/chromedriver.exe");
         WebDriver driver = new ChromeDriver();
         driver.get("http://testfasttrackit.info/selenium-test");
-        driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label")).click();
-        driver.findElement(By.cssSelector("#header-account > div > ul > li:nth-child(5) > a")).click();
+        driver.findElement(By.cssSelector("a.skip-account .label")).click();
+        driver.findElement(By.cssSelector("a[title*='Log']")).click();
         driver.findElement(By.cssSelector("#firstname")).sendKeys("Sebastian");
         driver.findElement(By.cssSelector("#lastname")).sendKeys("Marie");
         driver.findElement(By.cssSelector("#email_address")).sendKeys("sebastian.rgs@hotmail.com");

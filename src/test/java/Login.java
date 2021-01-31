@@ -21,12 +21,12 @@ public class Login {
     @Test
     public void login() {
 
-        driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label")).click();
-        driver.findElement(By.cssSelector("#header-account > div > ul > li.last > a")).click();
-        driver.findElement(By.cssSelector("#email")).sendKeys("sebastian.rgs@hotmail.com");
-        driver.findElement(By.cssSelector("#pass")).sendKeys("IronMaiden1");
+        driver.findElement(By.cssSelector("a.skip-account .label")).click();
+        driver.findElement(By.cssSelector("a[title*='Log']")).click();
+        driver.findElement(By.cssSelector("input[name*='username']")).sendKeys("sebastian.rgs@hotmail.com");
+        driver.findElement(By.cssSelector("input[name*='password']")).sendKeys("IronMaiden1");
         driver.findElement(By.cssSelector("#send2")).click();
-        WebElement helloMessage = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col2-left-layout > div > div.col-main > div.my-account > div > div.welcome-msg > p.hello > strong"));
+        WebElement helloMessage = driver.findElement(By.cssSelector("p strong"));
         Assert.assertTrue(helloMessage.isDisplayed());
         String message = helloMessage.getText();
         Assert.assertEquals("Hello, Sebastian Marie!",message);
@@ -34,23 +34,23 @@ public class Login {
     @Test
 
     public void invalidEmailLogin() {
-        driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label")).click();
-        driver.findElement(By.cssSelector("#header-account > div > ul > li.last > a")).click();
+        driver.findElement(By.cssSelector("a.skip-account .label")).click();
+        driver.findElement(By.cssSelector("a[title*='Log']")).click();
         driver.findElement(By.cssSelector("#email")).sendKeys("sebastian.rg@hotmail.com");
         driver.findElement(By.cssSelector("#pass")).sendKeys("IronMaiden1");
         driver.findElement(By.cssSelector("#send2")).click();
-        WebElement errorMessage = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col1-layout > div > div > div.account-login > ul > li > ul > li > span"));
+        WebElement errorMessage = driver.findElement(By.cssSelector("p strong"));
         String message2 = errorMessage.getText();
         Assert.assertEquals("Invalid login or password.",message2);
     }
     @Test
     public void invalidPasswordLogin() {
-        driver.findElement(By.cssSelector("#header > div > div.skip-links > div > a > span.label")).click();
-        driver.findElement(By.cssSelector("#header-account > div > ul > li.last > a")).click();
+        driver.findElement(By.cssSelector("a.skip-account .label")).click();
+        driver.findElement(By.cssSelector("a[title*='Log']")).click();
         driver.findElement(By.cssSelector("#email")).sendKeys("sebastian.rg@hotmail.com");
         driver.findElement(By.cssSelector("#pass")).sendKeys("IroMaiden1");
         driver.findElement(By.cssSelector("#send2")).click();
-        WebElement errorMessage = driver.findElement(By.cssSelector("body > div > div.page > div.main-container.col1-layout > div > div > div.account-login > ul > li > ul > li > span"));
+        WebElement errorMessage = driver.findElement(By.cssSelector("p strong"));
         String message2 = errorMessage.getText();
         Assert.assertEquals("Invalid login or password.",message2);
     }
